@@ -19,15 +19,22 @@ Bài viết dành cho những ai đã biết về các kĩ thuật Pwn trên Lin
   + [`socat 1.7.3.2 for Windows`](https://www.cybercircuits.co.nz/web/blog/socat-1-7-3-2-for-windows)
   + Hướng dẫn sử dụng socat trên Windows: [`Link 1`](https://github.com/datntsec/H-ng-d-n-s-d-ng-socat-tr-n-windows) or [`Link 2`](https://juejin.im/post/6844903954438963207)
   Để cho tiện thì mình sẽ [`thiết lập biến môi trường cho socat`](https://github.com/datntsec/H-ng-d-n-s-d-ng-socat-tr-n-windows#2-thi%E1%BA%BFt-l%E1%BA%ADp-enviroment), sau này dùng thì chỉ việc gọi lệnh socat trong cmd là dùng được, khỏi phải dẫn đường dẫn trực tiếp, ví dụ như lệnh sau ta sẽ chạy file `EasyWinHeap.exe` với `socat`:
-  
   ``` bash 
   socat tcp-listen:8888,fork EXEC:EasyWinHeap.exe,pipes &
   ```
-  Sau khi chạy socat thành công, khi có một kết nối đến, nó sẽ chạy chương trình EasyWinHeap.exe trên một tiến trình mới, ta chỉ việc đính kèm tiền trình này vào `IDA` (Pro) để tiến hành `debugging`. Ngoài ra, nếu bạn sử dụng pwntools script để giải, bạn có thể gọi thêm 
-  ```python
-  raw_input
+  Sau khi chạy socat thành công, khi có một kết nối đến, nó sẽ chạy chương trình EasyWinHeap.exe trên một tiến trình mới, ta chỉ việc đính kèm tiền trình này vào `IDA` (Pro) để tiến hành `debugging`. Ngoài ra, nếu bạn sử dụng pwntools script để giải, bạn có thể gọi thêm `raw_input` sau khi thực hiện remote và kết nối thành công. Việc này giúp cho đoạn script sẽ không tiếp tục gửi data, còn socat thì đã bắt đầu tiến trình nhưng IDA sẽ không bỏ lỡ breakpoint khi đính kèm tiền trình và. Ví dụ:
+  ``` python
+  from pwn import *
+  context.log_level = 'debug'
+  io = remote("10.10.10.137",8888)
+
+  sla         = lambda delim,data           :  (io.sendlineafter(delim, data))
+  add         = lambda size           	  :  (sla("option >\r\n", '1'),sla("size >\r\n", str(size)))
+
+  raw_input()
+  add(1)
+  io.interactive()
   ```
-  In addition, if you use the pwntools script to solve the problem, you can add raw_input after the remote connection. At this time, the script will not continue to send data, and the socat has already started the process, so the IDA will not miss the breakpoint when it is attached to the process. as follows:
   
 
 
