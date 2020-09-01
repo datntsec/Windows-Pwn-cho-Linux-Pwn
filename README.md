@@ -41,14 +41,16 @@ Bài viết dành cho những ai đã biết về các kĩ thuật Pwn trên Lin
   ![](pic/pic2.PNG)
 
   Click `continue` or `F9` để chương trình tiếp tục chạy, Sau đó nhập input vào đoạn script đang chạy tại lệnh `raw_input`, sau đó lệnh add(1) sẽ được thực hiện, Tại đây, IDA sẽ bắt lấy breakpoint bạn đã đặt trước đó, và bạn có thể debug bình thường :))
+  
   **Ưu điểm khi kết hợp 3 công cụ: socat+pwntools+IDA:**
     + No need to change the pwntools environment
     + IDA dynamic source code level debugging
+    
   **Nhược điểm khi kết hợp 3 công cụ: socat+pwntools+IDA:**
     + For example, the _HEAP structure cannot be directly parsed and viewed (need to import the pdb file)
     + Debug breakpoints and debugger startup cannot be written in the script
+    
   Tất nhiên, thay vì sử dụng socat, ta cũng có thể sử dụng một debugger khác để debug
-Click Continue or press F9, and the program continues to run. Then give an input at the script running place, execute raw_input, and continue to execute add(1). At this time, IDA can catch the breakpoint, and you can debug happily.
 
 
 ## Tham khảo: [`Getting started with SCTF 2020 EasyWinHeap Windows Pwn`](https://xuanxuanblingbling.github.io/ctf/pwn/2020/07/09/winpwn/?fbclid=IwAR1goy2nYXxkLKbq_cayyHaBtAEZSb2PsIj2ly7Km3zOjWBHQkhxR7zML5E)
