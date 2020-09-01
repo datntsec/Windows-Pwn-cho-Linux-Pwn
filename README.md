@@ -12,7 +12,7 @@ Bài viết dành cho những ai đã biết về các kĩ thuật Pwn trên Lin
 + Phương thức cơ bản của Windows heap management.
 
 ## File luyện tập: [`sctf_EasyWinHeap.zip`](sctf_EasyWinHeap.zip)
-## Hệ điều hành: Windows 7 sp1
+## Hệ điều hành: `Windows 7 sp1`
 # Thiết lập môi trường:
 + Khác với winpwn: pwntools dành cho Windows (mini), chúng ta vẫn sẽ sử dụng pwntools để giải quyết [`EasyWinHeap`](sctf_EasyWinHeap.zip), mặc dù pwntools không sử dụng trực tiếp trên Windows được, chúng ta sẽ sử dụng socat để remote.
   + [`Socat for windows`](https://sourceforge.net/projects/unix-utils/files/socat/1.7.3.2/)
