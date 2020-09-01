@@ -15,9 +15,9 @@ Bài viết dành cho những ai đã biết về các kĩ thuật Pwn trên Lin
 ## Hệ điều hành: Windows 7 sp1
 # Thiết lập môi trường:
 + Khác với winpwn: pwntools dành cho Windows (mini), chúng ta vẫn sẽ sử dụng pwntools để giải quyết [`EasyWinHeap`](sctf_EasyWinHeap.zip), mặc dù pwntools không sử dụng trực tiếp trên Windows được, chúng ta sẽ sử dụng socat để remote.
-++ [`Socat for windows`](https://sourceforge.net/projects/unix-utils/files/socat/1.7.3.2/)
-++ [`socat 1.7.3.2 for Windows`](https://www.cybercircuits.co.nz/web/blog/socat-1-7-3-2-for-windows)
-++ [`Hướng dẫn sử dụng socat trên Windows`](https://juejin.im/post/6844903954438963207)
+  + [`Socat for windows`](https://sourceforge.net/projects/unix-utils/files/socat/1.7.3.2/)
+  + [`socat 1.7.3.2 for Windows`](https://www.cybercircuits.co.nz/web/blog/socat-1-7-3-2-for-windows)
+  + [`Hướng dẫn sử dụng socat trên Windows`](https://juejin.im/post/6844903954438963207)
 
 
 
