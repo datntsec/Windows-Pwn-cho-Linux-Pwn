@@ -69,6 +69,40 @@ int main(){
 	scanf("%d",&a);
 }
 ```
+Chạy chương trình trên windows bằng cách double click chuột vào file binary hoặc dùng cmd để mở, sau đó sử dụng `Process Explorer` và `VMMap` để quan sát: 
+
+![](pic/pic3.PNG)
+
+Trong hình trên tôi sử dụng cmd để mở tiến trình, vì vậy mà trong `Process Explorer` tiến trình cha của `test.exe` là `cmd`, nếu tôi sử dụng double click vào file `exe` đẻ chạy chương trình thì tiến trình cha của nó sẽ là `explorer.exe`:
+
+![](pic/pic4.PNG)
+
+Tiếp đến là một vài thông tin trong `VMMap` của tiến trình:
++ 8 dynamic link library được load, tuy nhiên chúng ta chỉ quan tâm đến 5 file sau: `kernel32`, `ntdll`, `mscvrt`, `KernelBase`, `apisetschema`.
++ The heap space.
++ Không có ASLR.
+
+![](pic/pic5.PNG)
+
+5 dynamic link library cho thấy sự phức tạp hơn trên so với Linux, đối với `scanf` trên Linux dùng `libc.so`, sau đó gọi system call trong kernel để thực thi. Nhung Windows là mã nguồn đóng, nó không cho phép ta dùng API được nó cung cấp thông qua việc gọi trực tiếp system call. Vì vậy nó dùng các dynamic link library (`kernel32`, `ntdll`, `mscvrt`) để tương tác với kernel:
++ `mscvrt`: là Microsoft C runtime library, nó tương tự như libc trên Linux. ([source](https://github.com/changloong/msvcrt))
++ `kernel32`: triển khai Windows API.
++ `ntdll`: gọi system call 
+Tham khảo thêm hình bên dưới và từ slide của [`atum`](https://github.com/A7um/slides/blob/master/2017/WinPWN.pdf) và [`Angel Boy`](https://www.slideshare.net/AngelBoy1/windows-10-nt-heap-exploitation-english-version)
+
+![](pic/pic6.PNG)
+
+`KernelBase` và `apisetschema` tham khảo thêm tại:
++ [Kernel32.dll vs Kernelbase.dll](https://github.com/tklengyel/drakvuf/issues/639)
++ [What is the difference between kernelBase.dll and Kernel32.dll](https://reverseengineering.stackexchange.com/questions/20175/what-is-the-difference-between-kernelbase-dll-and-kernel32-dll)
++ [New Low-Level Binaries](https://docs.microsoft.com/zh-cn/windows/win32/win7appqual/new-low-level-binaries?redirectedfrom=MSDN)
++ [Hook principle](https://zhuanlan.zhihu.com/p/38339756)
++ [In-depth analysis of api-ms-* series of dynamic link libraries](https://xz.aliyun.com/t/7019)
+
+
+
+
+
 
 
 ## Tham khảo: [`Getting started with SCTF 2020 EasyWinHeap Windows Pwn`](https://xuanxuanblingbling.github.io/ctf/pwn/2020/07/09/winpwn/?fbclid=IwAR1goy2nYXxkLKbq_cayyHaBtAEZSb2PsIj2ly7Km3zOjWBHQkhxR7zML5E)
