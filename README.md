@@ -62,5 +62,13 @@ Ngoài ra `winpwn` trong `vmmap` cũng cung cấp một công cụ command-line,
 
 Sử dụng 2 công cụa trên để hiểu về tiến trình trên windows, ta viết một đoạn code `c`, biên dịch nó (có thể dùng `gcc` qua việc cài đặt [MinGW](http://www.mingw.org/):
 
+``` c
+# include <stdio.h>
+int main(){
+	int a;
+	scanf("%d",&a);
+}
+```
+
 
 ## Tham khảo: [`Getting started with SCTF 2020 EasyWinHeap Windows Pwn`](https://xuanxuanblingbling.github.io/ctf/pwn/2020/07/09/winpwn/?fbclid=IwAR1goy2nYXxkLKbq_cayyHaBtAEZSb2PsIj2ly7Km3zOjWBHQkhxR7zML5E)
