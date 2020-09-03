@@ -52,5 +52,15 @@ Bài viết dành cho những ai đã biết về các kĩ thuật Pwn trên Lin
     
   Tất nhiên, thay vì sử dụng socat, ta cũng có thể sử dụng một debugger khác để debug
 
+# Tiến trình hoạt động như thế nào?
+Phần này chủ yếu tập trung vào process memory space và những thông tin liên quan đến dynamic link libraries
+Tiến trình được quản lý bởi hệ điều hành, nếu ta muốn biết những thông tin liên quan đến tiến trình trong tiến trình, ta phải cung cấp giao diện và đông ý để người dùng xem nó. Khác với Linux, ta có thể xem thông tin của tiến trình thông qua tệp hệ thống giả `proc` mà nó cung cấp. Tệp hệ thống giả `proc` cũng là một cách để người dùng tương tác với nhân (`kernel`) hệ điều hành không chỉ qua việc gọi system call. Ví dụ, chúng ta có thể kiếm tra cách bố trí bộ nhớ của tiến trình qua `/proc/pid/maps`. Trong các vấn đề về `pwn`, ngoài tệp tin binary, thường có thêm hai tệp được ánh xạ đến bộ nhớ tiến trình: `libc.so` và `ld.so`.
+Vậy, không có proc như trên linux, làm sao ta biết được các thông tin liên quan đến một tiến trình? Trên windows có một thứ để lấy thông tin tiến trình `Windows API`, tuy nhiên không đòi hòi ta phải biết dùng nó, ta có thể sử dụng 2 công cụ sau để hỗ trơ:
++ `Process Explorer`: một công cụ quản lý cung cấp thông tin chi tiết hơn về tiến trình.
++ `VMMap`: công cụ này giúp ta có thể xem cách bố trí bộ nhớ của một chương trình.
+Ngoài ra `winpwn` trong `vmmap` cũng cung cấp một công cụ command-line, tuy nhiên nó không thực sự good.
+
+Sử dụng 2 công cụa trên để hiểu về tiến trình trên windows, ta viết một đoạn code `c`, biên dịch nó (có thể dùng `gcc` qua việc cài đặt [MinGW](http://www.mingw.org/):
+
 
 ## Tham khảo: [`Getting started with SCTF 2020 EasyWinHeap Windows Pwn`](https://xuanxuanblingbling.github.io/ctf/pwn/2020/07/09/winpwn/?fbclid=IwAR1goy2nYXxkLKbq_cayyHaBtAEZSb2PsIj2ly7Km3zOjWBHQkhxR7zML5E)
