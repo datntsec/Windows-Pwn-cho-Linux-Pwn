@@ -169,7 +169,7 @@ Các lổ hỏng trên là do lỗi logic của ptmalloc trong glibc, nhưng tr�
 ## Similar
 Hình dưới đây là từ [slide](https://www.slideshare.net/AngelBoy1/windows-10-nt-heap-exploitation-english-version) của AngelBoy, mô tả sự quản lý heap trên Windows:
 
-![](pic/pic7.PNG
+![](pic/pic7.PNG)
 
 Có thể nhìn thấy, trình quản lý heap của Windows cũng sử dụng `Linked list of free blocks (freelist)`, `Heap block with header information (chunk) structure` tương tự như `ptmalloc`. 
 Vậy trình quản lý heap hoạt động như thế nào? Thật không may là Microsoft không cung cấp thông tin này, tuy nhiên chúng ta có thể tìm thấy một vài thông tin liên quan trong các tài liệu của Microsoft:
