@@ -387,3 +387,6 @@ Bài viết dành cho những ai đã biết về các kĩ thuật Pwn trên Lin
     + [What are the advantages and disadvantages of C/C++ compilers such as GCC/G++, ICC, Clang, MSVC, BCC?](https://www.zhihu.com/question/23789676).
 
 # Tham khảo: [`Getting started with SCTF 2020 EasyWinHeap Windows Pwn`](https://xuanxuanblingbling.github.io/ctf/pwn/2020/07/09/winpwn/?fbclid=IwAR1goy2nYXxkLKbq_cayyHaBtAEZSb2PsIj2ly7Km3zOjWBHQkhxR7zML5E)
+
+**_DatntSec
+Viettel Cyber Security._**
