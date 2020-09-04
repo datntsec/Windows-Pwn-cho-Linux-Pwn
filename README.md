@@ -388,5 +388,4 @@ Bài viết dành cho những ai đã biết về các kĩ thuật Pwn trên Lin
 
 # Tham khảo: [`Getting started with SCTF 2020 EasyWinHeap Windows Pwn`](https://xuanxuanblingbling.github.io/ctf/pwn/2020/07/09/winpwn/?fbclid=IwAR1goy2nYXxkLKbq_cayyHaBtAEZSb2PsIj2ly7Km3zOjWBHQkhxR7zML5E)
 
-**_DatntSec
-Viettel Cyber Security._**
+**_DatntSec. Viettel Cyber Security._**
