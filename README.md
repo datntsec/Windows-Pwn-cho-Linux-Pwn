@@ -187,7 +187,8 @@ Một trong các cuốn sách nói chi tiết về Windows heap là "0day" (sác
 
 Các tài liệu trên thật sự khá khác với heap trong "0day" vì nó chủ yếu nói về heap trên windows 10. Tức ở hai giai đoạn còn lại trong "0day" mà tác giả không nói chi tiết về nó. May mắn thay, có một bài báo nói khá chi tiết về hai giai đoạn đó, tác giả bài báo này tham khảo "0day" nên cũng chia heap trên windows thành ba giai đoạn, sau đó bổ sung thêm hai giai đoạn sau. Cấu trúc của bài báo này gồm: giới thiệu cấu trúc heap, lỗ hỏng và phương thức tấn công ở cả ba giai đoạn một cách chi tiết và bao quát.
 + [Research on Generation Principle and Utilization Method of Typical Heap Vulnerability in Windows System](https://www.jianshu.com/p/a853040d2804).
-Sau khi đọc bài báo trên, ta có thể thấy heap hiện tại vẫn đang ở giai đoạn ba được đề cập trong "0day". Bài báo cũng tập trung về việc triển khai cấu trúc heap hiện tại:
+
+Sau khi đọc bài báo trên, ta có thể thấy heap hiện tại vẫn đang ở giai đoạn ba được đề cập trong "0day". Bài báo cũng tập trung về việc triển khai cấu trúc heap hiện tại.
 
 ## Cái nhìn đầu tiên về Windbg
 [Heap in Windows](https://kirin-say.top/2020/01/01/Heap-in-Windows/) cũng là một bài viết được tham khảo từ [slide]() của AngelBoy cùng với kinh nghiệm có được trong quá trình debug của tác giả, sử dụng windbg để gỡ lỗi.
